@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Multi-Agent IT Support System</title>
+    <link rel="stylesheet" href="{{ url_for('static', path='/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="header-content">
+                <div class="logo">
+                    <span class="robot-icon">🤖</span>
+                    <h1>Enhanced Multi-Agent IT Support System</h1>
+                </div>
+                <p class="subtitle">AI-powered support with weather, air quality, and comprehensive IT assistance</p>
+            </div>
+        </header>
+
+        <main class="chat-container">
+            <div class="chat-header">
+                <span class="status-icon">🚀</span>
+                <h2>AI Assistant</h2>
+                <span class="status" id="connectionStatus">Connecting...</span>
+            </div>
+
+            <div class="chat-messages" id="chatMessages">
+                <div class="bot-message">
+                    <div class="message-avatar">🤖</div>
+                    <div class="message-content">
+                        <p><strong>Hello!</strong> I'm your enhanced AI assistant. I can help with:</p>
+                        <ul>
+                            <li>General IT support questions</li>
+                            <li>Weather information (try: "What's the weather in Paris?")</li>
+                            <li>Air quality data (try: "AQI in Tokyo")</li>
+                        </ul>
+                        <p>How can I assist you today?</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="chat-input-container">
+                <input type="text" id="messageInput" placeholder="Type your message here..." />
+                <button id="sendButton">Send</button>
+            </div>
+        </main>
+
+        <footer class="stats">
+            <div class="stat-item">
+                <div class="stat-number" id="totalQueries">0</div>
+                <div class="stat-label">Total Queries</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="weatherRequests">0</div>
+                <div class="stat-label">Weather Requests</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number" id="aqiRequests">0</div>
+                <div class="stat-label">AQI Requests</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">Availability</div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', path='/script.js') }}"></script>
+</body>
+</html>
