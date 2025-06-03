@@ -21,6 +21,13 @@ from langchain_core.runnables.history import RunnableWithMessageHistory
 # Load environment variables
 load_dotenv()
 
+# API Key
+WEATHER_API_KEY = os.getenv('W_KEY')
+LLM_API_KEY = os.getenv('L_KEY')
+
+
+
+
 app = FastAPI(title="Enhanced Multi-Agent IT Support System")
 
 # Mount static files and templates
@@ -277,7 +284,7 @@ def get_conversation_state(session_id: str) -> ConversationState:
 # Initialize the LLM
 llm = ChatOpenAI(
     model="meta-llama/llama-3.2-1b-instruct:free",
-    openai_api_key="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",
+    openai_api_key=LLM_API_KEY,
     openai_api_base="https://openrouter.ai/api/v1",
     temperature=0.7,
 )
@@ -311,9 +318,6 @@ conversation = RunnableWithMessageHistory(
     input_messages_key="input",
     history_messages_key="history"
 )
-
-# API Key
-WEATHER_API_KEY = "fd598acfa0e8085d5c4e1a6ddfe94b19"
 
 
 def enhanced_chat_with_llm(user_input, session_id="default_session"):
